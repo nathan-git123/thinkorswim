@@ -1,0 +1,9 @@
+# In the ticker entry box on ToS, enter the tickers of two companies to plot their historical implied volatility and their historical implied volatility ratios.
+# An example input comparing Facebook and Apple would be: FB-AAPL
+
+
+declare lower;
+
+plot iv1 = imp_volatility(getSymbolpart(1));
+plot iv2 = imp_volatility(getSymbolpart(2));
+plot iv_ratio = iv1/iv2;
