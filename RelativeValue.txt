@@ -1,0 +1,10 @@
+# https://github.com/nathan-git123
+# In the ticker entry box on ThinkorSwim, enter the tickers of two companies to plot their prices and their price ratios.
+# An example input comparing Facebook and Apple would be: FB-AAPL
+
+
+declare lower;
+
+def price1 = close(getSymbolpart(1));
+def price2 = close(getSymbolpart(2));
+plot price_ratio = price1 / price2;
