@@ -1,4 +1,4 @@
-# https://github.com/daf-git
+# https://github.com/nathan-git123
 # In the ticker entry box on ThinkorSwim, enter the tickers of two companies to plot their implied volatilities and their implied volatility ratios.
 # An example input comparing Facebook and Apple would be: FB-AAPL
 
