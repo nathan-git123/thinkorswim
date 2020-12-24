@@ -16,8 +16,6 @@ sigma = 0.15 # Risk
 t = 10 # Time in Years
 t_int = .05 # Size of Each Calculation Interval
 trials = 1000 # Number of Trials to Simulate
-
-# Technical Junk
 n = round(t/t_int) # Convert t/dt to integer for "l" and distribution sampling
 dt = np.linspace(0, t, n) # Linear Space from 0, t in intervals of t/dt
 
