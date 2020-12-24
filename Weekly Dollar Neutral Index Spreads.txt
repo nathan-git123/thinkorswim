@@ -1,0 +1,34 @@
+# https://github.com/nathan-git123
+# This tool plots ratio-adjusted weekly index spreads between MES, MNQ, M2K, and MYMH.
+# Project was postponed because inconsistent contract sizes make pairs trading indices difficult.
+# Direct pairs trading ETF is more feasible; however, another tool will be developed for that.
+# Beta neutrality is also a good alternative to dollar weighting for a follow-up project.  
+
+declare lower;
+declare once_per_bar;
+
+input displace = 20;
+
+def mult_MES = 5;
+def mult_MNQ = 2;
+def mult_M2K = 5;
+def mult_MYMH = .5;
+
+def dollar_MES = close("/MES")*mult_MES;
+def dollar_MNQ = close("/MNQ")*mult_MNQ;
+def dollar_M2K = close("/M2K")*mult_M2K;
+def dollar_MYMH = close("/MYMH")*mult_MYMH;
+
+def ratio_MES_MNQ = dollar_MES / dollar_MNQ;
+def ratio_MES_M2K = dollar_MES / dollar_M2K;
+def ratio_MES_MYMH = dollar_MES / dollar_MYMH;
+def ratio_MNQ_M2K = dollar_MNQ / dollar_M2K;
+def ratio_MNQ_MYMH = dollar_MNQ / dollar_MYMH;
+def ratio_M2K_MYMH =  dollar_M2K / dollar_MYMH;
+
+plot dollar_neutral_MES_MNQ = dollar_MES / ratio_MES_MNQ - dollar_MNQ;
+plot dollar_neutral_MES_M2K = dollar_MES / ratio_MES_M2K - dollar_M2K;
+plot dollar_neutral_MES_MYMH = dollar_MES / ratio_MES_MYMH - dollar_MYMH;
+plot dollar_neutral_MNQ_M2K = dollar_MNQ / ratio_MNQ_M2K - dollar_M2K;
+plot dollar_neutral_MNQ_MYMH = dollar_MNQ / ratio_MNQ_MYMH - dollar_MYMH;
+plot dollar_neutral_M2K_MYMH = dollar_M2K / ratio_M2K_MYMH - dollar_MYMH;
